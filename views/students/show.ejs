@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1><%= student.firstName + " " + student.lastName %></h1>
+        <p>NEU ID: <%= student.neuId %></p>
+        <p>email: <%= student.email %></p>
+        <p>gender: <%= student.gender %></p>
+        <p>phone: <%= student.phone %></p>
+        <p>address: <%= student.address %></p>
+        <p>graduation month: <%= student.graduationMonth %></p>
+        <p>graduation year: <%= student.graduationYear %></p>
+        <p>start term: <%= student.startTerm %></p>
+        <p>enrollment status: <%= student.enrollmentStatus %></p>
+        <p>major: <%= student.major %></p>
+        <p>degree: <%= student.degree %></p>
+        <p>campus: <%= student.campus %></p>
+        <p>citizenship status: <%= student.citizenshipStatus %></p>
+        <p></p>
+        <p></p>
+
+        <h2>Work Experience</h2>
+        <a class="btn btn-success" href="/students/<%= student.neuId %>/experiences/new">Add new experience</a>
+        <ul>
+            <% student.experiences.forEach(function (experience) { %>
+                <li>
+                    <strong><%= experience.company + " (" + experience.startYear + 
+                    ", " + experience.startMonth + " - " + experience.endYear + ", " +
+                    experience.endMonth + ") " %></strong>- <%= experience.jobTitle %>
+                </li>
+                <a class="btn btn-xs btn-warning" 
+                    href="/students/<%= student.neuId %>/experiences/<%= experience._id %>/edit">
+                    Edit Experience</a>
+                <form 
+                    action="/students/<%= student.neuId %>/experiences/<%= experience._id %>?_method=DELETE"
+                    method="POST"
+                    style="display: inline;">
+                    <button class="btn btn-danger btn-xs">Delete Experience</button>
+                </form>
+            <% }) %>
+        </ul>
+
+        <form action="/students/<%= student.neuId %>?_method=DELETE" method="POST">
+            <div class="form-group">
+                <a class="btn btn-warning btn-block form-control" href="/students/<%= student.neuId %>/edit">Edit Student</a>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block form-control">Delete Student</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

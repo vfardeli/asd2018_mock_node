@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create a new experience</h1>
+        <form action="/students/<%= student.neuId %>/experiences" method="POST">
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input class="form-control" type="text" name="experience[company]" id="company" placeholder="Company">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input class="form-control" type="text" name="experience[location]" id="location" placeholder="Location">
+            </div>
+            <div class="form-group">
+                <label for="jobTitle">Job Title:</label>
+                <input class="form-control" type="text" name="experience[jobTitle]" id="jobTitle" placeholder="Job Title">
+            </div>
+            <div class="form-group">
+                <label for="startMonth">Start Month:</label>
+                <input class="form-control" type="Number" name="experience[startMonth]" id="startMonth" placeholder="Start Month">
+            </div>
+            <div class="form-group">
+                <label for="startYear">Start Year:</label>
+                <input class="form-control" type="Number" name="experience[startYear]" id="startYear" placeholder="Start Year">
+            </div>
+            <div class="form-group">
+                <label for="endMonth">End Month:</label>
+                <input class="form-control" type="Number" name="experience[endMonth]" id="endMonth" placeholder="End Month">
+            </div>
+            <div class="form-group">
+                <label for="endYear">End Year:</label>
+                <input class="form-control" type="Number" name="experience[endYear]" id="endYear" placeholder="End Year">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

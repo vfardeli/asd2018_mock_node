@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Experience</h1>
+        <form action="/students/<%= student.neuId %>/experiences/<%= experience._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input class="form-control" type="text" name="experience[company]" id="company" value="<%= experience.company %>">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input class="form-control" type="text" name="experience[location]" id="location" value="<%= experience.location %>">
+            </div>
+            <div class="form-group">
+                <label for="jobTitle">Job Title:</label>
+                <input class="form-control" type="text" name="experience[jobTitle]" id="jobTitle" value="<%= experience.jobTitle %>">
+            </div>
+            <div class="form-group">
+                <label for="startMonth">Start Month:</label>
+                <input class="form-control" type="Number" name="experience[startMonth]" id="startMonth" value="<%= experience.startMonth %>">
+            </div>
+            <div class="form-group">
+                <label for="startYear">Start Year:</label>
+                <input class="form-control" type="Number" name="experience[startYear]" id="startYear" value="<%= experience.startYear %>">
+            </div>
+            <div class="form-group">
+                <label for="endMonth">End Month:</label>
+                <input class="form-control" type="Number" name="experience[endMonth]" id="endMonth" value="<%= experience.endMonth %>">
+            </div>
+            <div class="form-group">
+                <label for="endYear">End Year:</label>
+                <input class="form-control" type="Number" name="experience[endYear]" id="endYear" value="<%= experience.endYear %>">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
